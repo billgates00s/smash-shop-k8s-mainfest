@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smashshop-frontend-deployment
+  namespace: application-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: smashshop-frontend
+  template:
+    metadata:
+      labels:
+        app: smashshop-frontend
+    spec:
+      containers:
+      - name: smashshop-frontend
+        image: nhongcuong/smash-shop-frontend-image:72
+        ports:
+        - containerPort: 80
+        envFrom:
+        - secretRef:
+            name: smashshop-frontend-secret
+        env:
+        - name: REACT_APP_API_URL
+          value: "http://192.168.88.133:30003"

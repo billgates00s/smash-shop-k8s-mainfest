@@ -1,0 +1,1 @@
+# smash-shop-k8s-mainfest
