@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: smashshop-frontend
-        image: nhongcuong/smash-shop-frontend-image:72
+        image: nhannh/smash-shop-frontend-image:72
         ports:
         - containerPort: 80
         envFrom:
@@ -23,4 +23,4 @@ spec:
             name: smashshop-frontend-secret
         env:
         - name: REACT_APP_API_URL
-          value: "http://192.168.88.133:30003"
+          value: "http://192.168.13.128:30003"
