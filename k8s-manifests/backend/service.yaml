@@ -13,3 +13,8 @@ spec:
       port: 80
       targetPort: 5001
       nodePort: 30003
+    - name: https           # Thêm tên cho port d?u tiên
+      protocol: TCP
+      port: 443
+      targetPort: 5443
+      nodePort: 30449
