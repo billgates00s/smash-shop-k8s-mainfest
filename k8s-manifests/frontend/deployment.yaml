@@ -7,7 +7,6 @@ metadata:
     app: smashshop-frontend
 spec:
   replicas: 2
-  # Chiến lược cập nhật giúp ứng dụng không bị gián đoạn khi deploy bản mới
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -23,46 +22,16 @@ spec:
     spec:
       containers:
         - name: smashshop-frontend
-          image: nhannh/smash-shop-frontend-image:52
-          # Luôn luôn quy định tài nguyên để tránh Pod chiếm hết RAM của Node
-          resources:
-            requests:
-              memory: "128Mi"
-              cpu: "100m"
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
+          image: nhannh/smash-shop-frontend-image:51
+          # Bổ sung Port để K8s quản lý
           ports:
-            - name: http
-              containerPort: 80
-            - name: https
-              containerPort: 443
-
-          # Kiểm tra xem Nginx đã khởi động xong chưa
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 30444
-              scheme: HTTPS
-            initialDelaySeconds: 10
-            periodSeconds: 20
-
-          # Kiểm tra xem Pod đã sẵn sàng nhận traffic chưa
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 30444
-              scheme: HTTPS
-            initialDelaySeconds: 5
-            periodSeconds: 10
-
+            - containerPort: 30444
           envFrom:
             - secretRef:
                 name: smashshop-frontend-secret
           env:
             - name: REACT_APP_API_URL
-              value: "https://192.168.13.128:30444" # Nên điền URL cụ thể thay vì để trống
-
+              value: "https://192.168.13.128:30444"
           volumeMounts:
             - name: nginx-config
               mountPath: /etc/nginx/conf.d/default.conf
@@ -70,7 +39,6 @@ spec:
             - name: ssl-certs
               mountPath: /etc/nginx/ssl/smashshop.com
               readOnly: true
-
       volumes:
         - name: nginx-config
           configMap:
