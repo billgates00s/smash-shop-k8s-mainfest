@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: smashshop-frontend
-          image: nhannh/smash-shop-frontend-image:51
+          image: nhannh/smash-shop-frontend-image:52
           # Luôn luôn quy định tài nguyên để tránh Pod chiếm hết RAM của Node
           resources:
             requests:
