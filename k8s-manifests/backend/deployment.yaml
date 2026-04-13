@@ -18,7 +18,6 @@ spec:
         image: nhannh/smash-shop-backend-image:32
         ports:
         - containerPort: 5001
-        - containerPort: 5443
         envFrom:
         - secretRef:
             name: smashshop-backend-secret

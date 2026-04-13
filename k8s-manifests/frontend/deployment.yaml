@@ -24,7 +24,7 @@ spec:
             name: smashshop-frontend-secret
         env:
         - name: REACT_APP_API_URL
-          value: "https:192.168.13.128:30449"
+          value: "http:192.168.13.128:30003"
         # --- PH?N THÊM M?I 1: G?n file vào thu m?c bên trong Container ---
         volumeMounts:
         - name: nginx-config
