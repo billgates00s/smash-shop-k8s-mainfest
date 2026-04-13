@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: smashshop-frontend
-          image: nhannh/smash-shop-frontend-image:49
+          image: nhannh/smash-shop-frontend-image:51
           ports:
             - containerPort: 80
             - containerPort: 443
