@@ -13,7 +13,7 @@ spec:
       port: 80
       targetPort: 80
       nodePort: 30002
-    - name: https          # Thêm tên cho port th? hai
+    - name: https          # Thï¿½m tï¿½n cho port th? hai
       protocol: TCP
       port: 443
       targetPort: 443
