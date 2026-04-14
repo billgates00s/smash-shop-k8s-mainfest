@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: smashshop-frontend
-          image: nhannh/smash-shop-frontend-image:59
+          image: nhannh/smash-shop-frontend-image:60
           # Bổ sung Port để K8s quản lý
           ports:
             - containerPort: 30444
