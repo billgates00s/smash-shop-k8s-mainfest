@@ -15,11 +15,7 @@ spec:
     spec:
       containers:
       - name: smashshop-backend
-<<<<<<< HEAD
-        image: nhannh/smash-shop-backend-image:37
-=======
         image: nhannh/smash-shop-backend-image:44
->>>>>>> 76b6d336e991fa6fff8644f0df7fc497af1e8fdb
         ports:
         - containerPort: 5001
         envFrom:
